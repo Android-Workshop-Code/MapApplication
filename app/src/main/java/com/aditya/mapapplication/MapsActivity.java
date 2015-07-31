@@ -1,5 +1,10 @@
 package com.aditya.mapapplication;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -12,11 +17,27 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
+
+        // setup the accelerometer
+        sensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager.registerListener((SensorEventListener) this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    public void onSensorChanged(SensorEvent event){
+
+    }
+
+    public void onAccuracyChanged(Sensor sensor, int accuracy){
+        
     }
 
     @Override
