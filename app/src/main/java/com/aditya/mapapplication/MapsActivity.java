@@ -27,18 +27,18 @@ public class MapsActivity extends FragmentActivity {
         setUpMapIfNeeded();
 
         // setup the accelerometer
-        sensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
+        /**sensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        sensorManager.registerListener((SensorEventListener) this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener((SensorEventListener) this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);*/
     }
 
-    public void onSensorChanged(SensorEvent event){
+    /**public void onSensorChanged(SensorEvent event){
 
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy){
         
-    }
+    }*/
 
     @Override
     protected void onResume() {
